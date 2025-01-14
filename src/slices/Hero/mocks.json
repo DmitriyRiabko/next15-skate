@@ -1,0 +1,40 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Planned"
+						}
+					}
+				]
+			},
+			"body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Nulla laborum aute ea consequat tempor fugiat. Ullamco sint elit officia voluptate cupidatat fugiat in. Amet ad ut Lorem adipisicing incididunt consectetur reprehenderit veniam sit ex esse cupidatat."
+						}
+					}
+				]
+			},
+			"button": {
+				"__TYPE__": "LinkContent",
+				"key": "099f3c88-c246-4a74-829d-f869766a44f0",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com",
+					"text": "catch"
+				}
+			}
+		},
+		"items": []
+	}
+]
