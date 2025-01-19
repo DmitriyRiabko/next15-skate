@@ -8,6 +8,7 @@ import {
   SliceComponentProps,
 } from "@prismicio/react";
 import { SkateboardProduct } from "./skateboard-product";
+import { Slidein } from "@/components/slidein";
 
 export type ProductGridProps = SliceComponentProps<Content.ProductGridSlice>;
 
@@ -18,13 +19,16 @@ const ProductGrid = ({ slice }: ProductGridProps): JSX.Element => {
       data-slice-variation={slice.variation}
       className="bg-texture bg-brand-gray"
     >
-      <Heading className="text-center ~mb-4/6" as="h2">
-        <PrismicText field={slice.primary.heading} />
-      </Heading>
-
-      <div className="text-center ~mb-6/10">
-        <PrismicRichText field={slice.primary.body} />
-      </div>
+      <Slidein>
+        <Heading className="text-center ~mb-4/6" as="h2">
+          <PrismicText field={slice.primary.heading} />
+        </Heading>
+      </Slidein>
+      <Slidein>
+        <div className="text-center ~mb-6/10">
+          <PrismicRichText field={slice.primary.body} />
+        </div>
+      </Slidein>
 
       <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
         {slice.primary.product.map(
