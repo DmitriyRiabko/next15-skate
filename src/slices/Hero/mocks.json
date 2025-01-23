@@ -84,6 +84,11 @@
 				"__TYPE__": "FieldContent",
 				"value": "#6356f1",
 				"type": "Color"
+			},
+			"skateboard_bolt_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#679aa2",
+				"type": "Color"
 			}
 		},
 		"items": []

@@ -399,6 +399,16 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#color
    */
   skateboard_truck_color: prismic.ColorField;
+
+  /**
+   * Skateboard Bolt Color field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.skateboard_bolt_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  skateboard_bolt_color: prismic.ColorField;
 }
 
 /**

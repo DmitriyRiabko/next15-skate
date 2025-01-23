@@ -63,6 +63,13 @@
             "label": "Skateboard Truck Color",
             "placeholder": ""
           }
+        },
+        "skateboard_bolt_color": {
+          "type": "Color",
+          "config": {
+            "label": "Skateboard Bolt Color",
+            "placeholder": ""
+          }
         }
       },
       "items": {}
