@@ -79,14 +79,13 @@ function Scene({
       ease: "sine.inOut",
     });
 
-
-    gsap.to(originRef.current.rotation,{
-      y:'+=0.22',
-      repeat:-1,
-      yoyo:true,
-      duration:4
-      
-    })
+    gsap.to(originRef.current.rotation, {
+      y: Math.PI / 64,
+      repeat: -1,
+      yoyo: true,
+      duration: 3,
+      ease: "sine.inOut",
+    });
   }, []);
 
   useEffect(() => {
