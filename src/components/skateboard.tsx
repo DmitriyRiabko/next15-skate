@@ -31,6 +31,7 @@ interface Props {
   constantWheelSpin?: boolean;
   wheelTextureUrls: string[];
   deckTextureUrls: string[];
+  pose?: "upright" | "side";
 }
 
 export function Skateboard({
@@ -41,6 +42,7 @@ export function Skateboard({
   truckColor,
   boltColor,
   constantWheelSpin = false,
+  pose = "upright",
 }: Props) {
   const wheelRefs = useRef<THREE.Object3D[]>([]);
 
@@ -169,8 +171,27 @@ export function Skateboard({
     }
   }, [constantWheelSpin, wheelTextureUrl]);
 
+  const positions = useMemo(
+    () =>
+      ({
+        upright: {
+          rotation: [0, 0, 0],
+          position: [0, 0, 0],
+        },
+        side: {
+          rotation: [0, 0, Math.PI / 2],
+          position: [0, 0.295, 0],
+        },
+      }) as const,
+    []
+  );
+
   return (
-    <group dispose={null}>
+    <group
+      dispose={null}
+      position={positions[pose].position}
+      rotation={positions[pose].rotation}
+    >
       <group name="Scene">
         <mesh
           name="GripTape"
