@@ -1,7 +1,6 @@
 import { Bounded } from "@/components/bounded";
 import { Heading } from "@/components/heading";
 import { Content, isFilled } from "@prismicio/client";
-import { PrismicNextLink } from "@prismicio/next";
 import {
   PrismicRichText,
   PrismicText,

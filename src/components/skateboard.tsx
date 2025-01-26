@@ -18,7 +18,7 @@ type GLTFResult = GLTF & {
     Truck1: THREE.Mesh;
     Truck2: THREE.Mesh;
   };
-  materials: {};
+  materials: object;
 };
 
 interface Props {
@@ -127,7 +127,7 @@ export function Skateboard({
         metalness: 0.8,
         roughness: 0.25,
       }),
-    [truckColor]
+    [truckColor, metalNormal]
   );
 
   const deckMaterial = useMemo(
