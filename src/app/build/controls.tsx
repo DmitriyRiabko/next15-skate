@@ -7,11 +7,11 @@ import {
   ImageField,
   isFilled,
   KeyTextField,
-  PrismicError,
+
 } from "@prismicio/client";
 import { PrismicNextImage, PrismicNextImageProps } from "@prismicio/next";
 import clsx from "clsx";
-import { Component, ComponentProps, useEffect } from "react";
+import {ComponentProps, useEffect } from "react";
 import { useCustomizerControls } from "./context";
 import { useRouter } from "next/navigation";
 
@@ -149,7 +149,7 @@ function Options({ title, selectedName, children }: OptionPage) {
 }
 
 type OptionProps = Omit<ComponentProps<"button">, "children"> & {
-  selected: Boolean;
+  selected: boolean;
   children: React.ReactNode;
 } & (
     | {

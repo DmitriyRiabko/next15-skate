@@ -10,7 +10,7 @@ interface Props {
   className?: string;
 }
 
-export const Footer: React.FC<Props> = async ({ className }) => {
+export const Footer: React.FC<Props> = async () => {
   const client = createClient();
   const settings = await client.getSingle("settings");
 

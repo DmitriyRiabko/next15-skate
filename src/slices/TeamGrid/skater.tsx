@@ -11,7 +11,7 @@ interface Props {
   index: number;
 }
 
-export const Skater: React.FC<Props> = ({ className, skater, index }) => {
+export const Skater: React.FC<Props> = ({  skater, index }) => {
   const colors = [
     "text-brand-blue",
     "text-brand-lime",

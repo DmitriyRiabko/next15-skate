@@ -10,7 +10,6 @@ interface Props {
 }
 
 export const HotSpot: React.FC<Props> = ({
-  className,
   position,
   isVisible,
   color = "#E6FC6A",
