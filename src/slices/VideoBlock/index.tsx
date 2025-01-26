@@ -10,7 +10,7 @@ export type VideoBlockProps = SliceComponentProps<Content.VideoBlockSlice>;
 const MASK_CLASSES =
   "[mask-image:url(/video-mask.png)] [mask-mode:alpha] [mask-position:center_center] [mask-repeat:no-repeat] [mask-size:100%_auto]";
 
-const VideoBlock = ({ slice }: VideoBlockProps): JSX.Element => {
+const VideoBlock = ({ slice }: VideoBlockProps) => {
   return (
     <Bounded
       data-slice-type={slice.slice_type}

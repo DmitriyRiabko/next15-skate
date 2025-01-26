@@ -11,7 +11,7 @@ import { Slidein } from "@/components/slidein";
 
 export type ProductGridProps = SliceComponentProps<Content.ProductGridSlice>;
 
-const ProductGrid = ({ slice }: ProductGridProps): JSX.Element => {
+const ProductGrid = ({ slice }: ProductGridProps) => {
   return (
     <Bounded
       data-slice-type={slice.slice_type}

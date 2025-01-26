@@ -19,7 +19,7 @@ export  const DEFAULT_BOLT_COLOR = "#6F6E6A";
 
 export type HeroProps = SliceComponentProps<Content.HeroSlice>;
 
-const Hero = ({ slice }: HeroProps): JSX.Element => {
+const Hero = ({ slice }: HeroProps) => {
   const deckTextureUrl =
     asImageSrc(slice.primary.skateboard_deck_texture) || DEFAULT_DECK_TEXTURE;
   const wheelTextureUrl =
