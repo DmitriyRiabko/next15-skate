@@ -7,7 +7,7 @@ import {
   useTexture,
 } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import React, { Suspense, useRef } from "react";
+import React, { Suspense, useEffect, useRef } from "react";
 import { useCustomizerControls } from "./context";
 import { asImageSrc } from "@prismicio/client";
 import {
@@ -30,6 +30,7 @@ export const Preview: React.FC<Props> = ({
   wheelTextureUrls,
   deckTextureUrls,
 }) => {
+  const floorRef = useRef<THREE.Mesh>(null);
   const cameraControls = useRef<CameraControls>(null);
   const { selectedWheel, selectedBolt, selectedDeck, selectedTruck } =
     useCustomizerControls();
@@ -41,8 +42,54 @@ export const Preview: React.FC<Props> = ({
   const truckColor = selectedTruck?.color ?? DEFAULT_TRUCK_COLOR;
   const boltColor = selectedBolt?.color ?? DEFAULT_BOLT_COLOR;
 
+  useEffect(() => {
+    setCameraControls(
+      new THREE.Vector3(0, 0.3, 0),
+      new THREE.Vector3(1.5, 0.8, 0)
+    );
+  }, [selectedDeck]);
+
+  useEffect(() => {
+    setCameraControls(
+      new THREE.Vector3(-0.12, 0.29, 0.57),
+      new THREE.Vector3(0.1, 0.25, 0.9)
+    );
+  }, [selectedTruck]);
+
+  useEffect(() => {
+    setCameraControls(
+      new THREE.Vector3(-0.08, 0.54, 0.64),
+      new THREE.Vector3(0.9, 1, 0.9)
+    );
+  }, [selectedWheel]);
+
+  useEffect(() => {
+    setCameraControls(
+      new THREE.Vector3(-0.25, 0.3, 0.62),
+      new THREE.Vector3(-0.5, 0.35, 0.8)
+    );
+  }, [selectedBolt]);
+
+  function setCameraControls(target: THREE.Vector3, pos: THREE.Vector3) {
+    if (!cameraControls.current) return;
+
+    cameraControls.current.setTarget(target.x, target.y, target.z, true);
+    cameraControls.current.setPosition(pos.x, pos.y, pos.z, true);
+  }
+
+  function onCameraControlStart() {
+    if (
+      !cameraControls.current ||
+      !floorRef.current ||
+      cameraControls.current.colliderMeshes.length > 0
+    )
+      return;
+
+    cameraControls.current.colliderMeshes = [floorRef.current];
+  }
+
   return (
-    <Canvas>
+    <Canvas camera={{ position: [2.5, 1, 0], fov: 50 }} shadows>
       <Suspense fallback={"Loading"}>
         <Environment
           files={"/hdr/warehouse-512.hdr"}
@@ -55,6 +102,13 @@ export const Preview: React.FC<Props> = ({
           intensity={1.6}
         />
         <StageFloor />
+
+        <mesh ref={floorRef} rotation={[-Math.PI / 2, 0, 0]} visible={false}>
+          <planeGeometry args={[6, 6]} />
+          <meshBasicMaterial />
+        </mesh>
+        <fog attach={"fog"} args={[ENV_COLOR, 3, 10]} />
+        <color attach={"background"} args={[ENV_COLOR]} />
         <Skateboard
           deckTextureUrl={deckTextureUrl}
           wheelTextureUrl={wheelTextureUrl}
@@ -68,6 +122,7 @@ export const Preview: React.FC<Props> = ({
           ref={cameraControls}
           minDistance={0.2}
           maxDistance={4}
+          onStart={onCameraControlStart}
         />
       </Suspense>
       <Preload all />

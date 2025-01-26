@@ -12,10 +12,10 @@ import { WideLogo } from "./wide-logo";
 import { TallLogo } from "./tall-logo";
 import { InteractiveSkateboard } from "./interactive-skateboard";
 
-const DEFAULT_DECK_TEXTURE = "/skateboard/Deck.webp";
-const DEFAULT_WHEEL_TEXTURE = "/skateboard/SkateWheel1.png";
-const DEFAULT_TRUCK_COLOR = "#6F6E6A";
-const DEFAULT_BOLT_COLOR = "#6F6E6A";
+export  const DEFAULT_DECK_TEXTURE = "/skateboard/Deck.webp";
+export  const DEFAULT_WHEEL_TEXTURE = "/skateboard/SkateWheel1.png";
+export  const DEFAULT_TRUCK_COLOR = "#6F6E6A";
+export  const DEFAULT_BOLT_COLOR = "#6F6E6A";
 
 export type HeroProps = SliceComponentProps<Content.HeroSlice>;
 
