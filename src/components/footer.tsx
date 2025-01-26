@@ -31,7 +31,7 @@ export const Footer: React.FC<Props> = async () => {
         <FooterPhysics boardTextureURLs={boardTextureUrls} className="absolute inset-0 overflow-hidden"/>
         <Logo className="pointer-events-none relative h-20 mix-blend-difference" />
       </div>
-      <Bounded as="nav">
+      <Bounded>
         <ul className="flex flex-wrap justify-center gap-8 ~text-lg/xl">
           {settings.data.navigation.map((item) => (
             <li key={item.link.text} className="hover:underline">
