@@ -262,7 +262,7 @@ export function Skateboard({
           castShadow
           receiveShadow
           geometry={nodes.Baseplates.geometry}
-          material={nodes.Baseplates.material}
+          material={truckMaterial}
           position={[0, 0.211, 0]}
         />
         <mesh
